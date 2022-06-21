@@ -1,0 +1,271 @@
+1. Do the below programs in anonymous function & IIFE.
+  a. Print odd numbers in an array.
+      Anonymous function:
+           var temp = [];
+           var odds = function(){
+              for(var i = arr[0]; i <= arr.length; i++){
+                  if(i % 2 == 1){
+                     temp.push(i);
+                  }
+              }
+           return temp;
+           }
+    
+           var arr = [1,2,3,4,5,6,7,8,9,10];
+           console.log(odds(arr)); 
+           
+      IIFE:
+          (function odds(){
+           var temp = [];
+           var arr = [1,2,3,4,5,6,7,8,9,10];
+                for(var i = arr[0];i <= arr.length; i++){
+                    if(i % 2 == 1){
+                        temp.push(i);
+                      }
+                 }
+           console.log(temp);
+          })();
+          
+b. Convert all the strings to title caps in a string array.
+   Anonymous function:
+        var titleCase = function(str) {
+        var str = str.toLowerCase().split(' ');
+        for (var i = 0; i < str.length; i++) {
+            str[i] = str[i].charAt(0).toUpperCase() + str[i].slice(1);
+        }
+        return str.join("");
+        }
+        var arr=['anitha','john','joseph'];
+        var result = arr.map((ele)=>titleCase(ele));
+        console.log(result);
+        
+     IIFE:
+     (function titleCase(){
+      var arr=['anitha','john','joseph'];  
+      var result = [];
+  
+          for(var i=0;i < arr.length; i++){
+                str = arr[i];
+                var str = str.toLowerCase().split(' ');
+              for (var j = 0; j < str.length; j++) {
+                     str[j] = str[j].charAt(0).toUpperCase() + str[j].slice(1);
+              }
+          result.push(str.join(""));
+          } 
+       console.log(result);
+       })();
+ 
+ c. Sum of all numbers in an array.
+    Anonymous function:
+    var sum = 0;
+    var total = function(arr){
+        for(var i=0; i < arr.length; i++){
+            sum = sum + arr[i];
+        }
+        return sum;
+        }
+    
+     var arr = [1,2,3,4,5,6,7,8,9,10];
+     console.log(total(arr));   
+     
+     IIFE:
+     (function(arr){
+         var sum = 0;
+            for(var i=0; i < arr.length; i++){
+                 sum = sum + arr[i];
+            }
+       console.log(sum);
+       })([1,2,3,4,5,6,7,8,9,10]);
+       
+d. Return all the prime numbers in an array.
+   Anonymous function:
+        let num = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
+        let result = [];
+        var isPrime = function(num) {
+              if(num < 2) return false;
+
+          for (let i = 2; i < num; i++){
+                  if(num % i == 0){
+                      return false;
+                   }
+           }
+          return true;
+          }
+          num.forEach(function (element) {
+          const item = isPrime(element);
+            if (item) {
+                result.push(element);
+            }
+          });
+          console.log(result);
+          
+      IIFE:
+      (function isPrime() {
+            var num=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
+            var result = [];
+       loop1:
+          for(var i=0;i < num.length;i++){
+                var num1 = num[i];
+                if(num1 < 2) {
+                      continue;
+                 }
+               for (var j = 2; j < num1; j++){
+                if(num1 % j == 0){
+                    continue loop1;
+                }
+          }  
+          result.push(num1);
+          }
+        console.log(result);
+        })();
+        
+e. Return all the palindromes in an array.
+    Anonymous function:
+       var palindrome = function() {
+              var arr = ['carecar', '1344', '12321', 'did', 'cannot'];
+              var result =[];
+
+           loop1:
+           for(var i = 0; i <arr.length; i++){
+                var str = arr[i];
+                var strReverse = str.split("").reverse().join("")
+                        if (str === strReverse) {
+                            result.push(str);
+                        } 
+                        else {
+                            continue loop1;
+                         }
+             }
+             return result;
+          }
+          console.log(palindrome());
+          
+    IIFE:
+    (function palindrome() {
+          var arr = ['carecar', '1344', '12321', 'did', 'cannot'];
+          var result =[];
+     loop1:
+         for(var i = 0; i <arr.length; i++){
+                 var str = arr[i];
+                 var strReverse = str.split("").reverse().join("");
+                        if (str === strReverse) {
+                            result.push(str);
+                        } 
+                        else {
+                           continue loop1;
+                        }
+          }
+      console.log(result);
+      })();
+      
+ f. Return median of two sorted arrays of the same size.
+    Anonymous function:
+         var median = function(a, b){
+         var c = [...a, ...b].sort((a, b) => a - b);
+         var half = c.length / 2 | 0;
+                 if (c.length % 2) {
+                       return c[half];
+                 }
+         return (c[half] + c[half - 1]) / 2;
+         }
+         var arr1 = [1, 12, 15, 26, 38];
+         var arr2 = [2, 13, 17, 30, 45];
+         console.log(median(arr1, arr2));
+         
+    IIFE:
+    (function median(){
+          var a= [1, 12, 15, 26, 38];
+          var b = [2, 13, 17, 30, 45];
+          var c = [...a, ...b].sort((a, b) => a - b);
+          var half = c.length / 2 ;
+                  if (c.length % 2) {
+                      console.log(c[half]);
+                  }
+          console.log((c[half] + c[half - 1]) / 2);
+       })();
+       
+ g. Remove duplicates from an array.
+    Anonymous function:
+    Anonymous:
+         var toUniqueArray = function(a){
+         var newArr = [];
+              for (var i = 0; i < a.length; i++) {
+                    if (newArr.indexOf(a[i]) === -1) {
+                        newArr.push(a[i]);
+                    }
+              }
+         return newArr;
+         }
+         var arr = ["red","red","green","green","green"];
+         var arr1 = toUniqueArray(arr); 
+         console.log(arr1);
+         
+    IIFE:
+      (function toUniqueArray(a) {
+           var newArr = [];
+           for (var i = 0; i < a.length; i++) {
+                   if (newArr.indexOf(a[i]) === -1) {
+                         newArr.push(a[i]);
+                   }        
+           }
+      console.log(newArr);
+      })(["red","red","green","green","green"]);
+      
+h. Rotate an array by k times.
+   Anonymous function:
+       var rotateArray2 = function(nums, k) {
+   
+       function reverse(arr, start, end) {
+             while (start < end) {
+                [arr[start], arr[end]] = [arr[end], arr[start]];
+                start++;
+                end--;
+             }
+       }
+       k %= nums.length;
+       reverse(nums, 0, (nums.length - 1));
+       reverse(nums, 0, (k - 1));
+       reverse(nums, k, (nums.length - 1));
+       return nums;
+       }
+       console.log(rotateArray2([1,2,3,4,5],3));
+   
+   IIFE:
+   (function rotateArray2(nums, k){
+         function reverse(arr, start, end) {
+               while (start < end) {
+                   [arr[start], arr[end]] = [arr[end], arr[start]];
+                   start++;
+                   end--;
+               }
+         }
+    k %= nums.length;
+    reverse(nums, 0, (nums.length - 1));
+    reverse(nums, 0, (k - 1));
+    reverse(nums, k, (nums.length - 1));
+    console.log(nums);
+    })([1,2,3,4,5],3);
+
+
+   
+   
+ 
+ 
+
+    
+
+    
+ 
+
+    
+    
+
+    
+    
+    
+
+      
+
+     
+    
+
