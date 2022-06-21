@@ -1,0 +1,83 @@
+3. Do the below programs in arrow functions.
+   a. Print odd numbers in an array.
+        var temp = [];
+        var odds = (arr)=> {
+             for(var i = arr[0]; i <= arr.length; i++){
+                 if(i % 2 == 1){
+                    temp.push(i);
+                 }
+             }
+        return temp;
+        }
+        var arr = [1,2,3,4,5,6,7,8,9,10];
+        console.log(odds(arr));
+        
+   b. Convert all the strings to title caps in a string array.
+        var titleCase =(str)=>{
+        var str = str.toLowerCase().split(' ');
+             for (var i = 0; i < str.length; i++) {
+                 str[i] = str[i].charAt(0).toUpperCase() + str[i].slice(1);
+             }
+        return str.join("");
+        }
+        var arr=['anitha','john','joseph'];
+        var result = arr.map((ele)=>titleCase(ele));
+        console.log(result);
+        
+   c. Sum of all numbers in an array.
+       var sum = 0;
+       var total = (arr) => {
+          for(var i=0; i < arr.length; i++){
+                sum = sum + arr[i];
+          }
+       return sum;
+       }
+    
+       var arr1 = [1,2,3,4,5,6,7,8,9,10];
+    
+       console.log(total(arr1));   
+       
+   d. Return all the prime numbers in an array.
+         var num = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
+         var result = [];
+         var isPrime = (num)=> {
+               if(num < 2) 
+                  return false;
+             for (let i = 2; i < num; i++){
+                     if(num % i == 0){
+                          return false;
+                     }
+             }
+         return true;
+         }
+         num.forEach(function (element) {
+         var item = isPrime(element);
+                if (item) {
+                    result.push(element);
+                }
+         });
+         console.log(result);
+         
+   e. Return all the palindromes in an array.
+            var palindrome = ()=> {
+                  var arr = ['carecar', '1344', '12321', 'did', 'cannot'];
+                  var result =[];
+
+            loop1:
+               for(var i = 0; i <arr.length; i++){
+                    var str = arr[i];
+                    var strReverse = str.split("").reverse().join("");
+                           if (str === strReverse) {
+                               result.push(str);
+                           } 
+                           else {
+                               continue loop1;
+                           }
+             }
+             return result;
+             }
+             console.log(palindrome());
+
+
+   
+   
